@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import EditarPerfil from './components/EditarPerfil';
 import ProdutosList from './components/ProdutosList';
 import PedidosList from './components/PedidosList';
+import Navbar from './components/Navbar';
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { user, loading } = useAuth();
@@ -17,7 +18,12 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => 
     return <Navigate to="/login" />;
   }
   
-  return <>{children}</>;
+  return (
+    <>
+      <Navbar />
+      {children}
+    </>
+  );
 };
 
 function AppRoutes() {
